@@ -19,7 +19,7 @@ Plateforme d'hébergement conçue pour les podcasteurs
 
 ## Captures d'écran
 
-![](./doc/screenshots/activity-feed.png)
+![](./doc/screenshots/screenshot.png)
 
 ## Avertissements / informations importantes
 
