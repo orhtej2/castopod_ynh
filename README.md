@@ -23,7 +23,7 @@ Hosting platform made for podcasters
 
 ## Screenshots
 
-![](./doc/screenshots/activity-feed.png)
+![](./doc/screenshots/screenshot.png)
 
 ## Disclaimers / important information
 
