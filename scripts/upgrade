@@ -22,7 +22,7 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
 redis_db=$(ynh_app_setting_get --app=$app --key=redis_db)
-phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
+phpversion=$YNH_PHP_VERSION
 
 fpm_footprint=$(ynh_app_setting_get --app=$app --key=fpm_footprint)
 fpm_free_footprint=$(ynh_app_setting_get --app=$app --key=fpm_free_footprint)
@@ -115,16 +115,6 @@ fi
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
-
-#=================================================
-# MYSQL CONFIGURATION
-#=================================================
-
-if ynh_compare_current_package_version --comparison eq --version 1.0.0-96~ynh1
-then
-	ynh_script_progression --message="Upgrading MySQL configuration..." --weight=1
-    ynh_mysql_connect_as --user=$db_name --password=$db_pwd --database=$db_name < ./from_beta_16.sql
-fi
 
 #=================================================
 # UPGRADE DEPENDENCIES
